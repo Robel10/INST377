@@ -1,66 +1,125 @@
-
 html {
-    background-color: aliceblue;
+    background-color: rgb(224, 188, 87);
+  }
+  .header {
+    background-color: #C26CEB;
+    display: flex;
+    margin-left: calc(50% - 50vw);
+    width: 100vw;
+    justify-content: space-between;
+    padding: 15px;
+    flex-direction: row;
+    align-items: center;
   }
   
-  #myName {
-    background-color: green;
+  .testudo {
+    display: flex;
+    height: 200px;
+    width: 400px;
+    margin-right: 50px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .name {
+    font-size: 50px;
+    font-family: Shojumaru;
+    color: white;
+    display: flex;
+    padding-right: 15px;
+    margin-left: 50px;
+  }
+  
+  .wrapper {
+    flex-wrap: wrap;
+  }
+  
+  .containter {
+    background-color: #FFD25A;
     display: flex;
     justify-content: center;
   }
-  #myName h1 {
-    color: lightgrey;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  
+  .content {
+    width: 200px;
+    padding: 20px;
   }
   
-  .resume {
-    width: 60%;
+  .pic {
+    border: solid 2px #FF4DB7;
+    width: inherit;
+    border-radius: 4px;
     margin: auto;
   }
   
-  #myPicture img {
-    width: 70%;
-    height: 70%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  .aboutMe {
+    background-color: #46E8D6;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: sans-serif;
   }
   
-  #myPicture h2 {
-    color: gray;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  .roles {
+    font-family: Shojumaru;
+    font-size: 50px;
   }
   
-  #myPicture p {
-    color: navy;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  .jobs {
+    background-color: #46E8D6;
+    padding: 15px;
+    margin-right: 25px;
+    margin-top: 15px;
+    margin-bottom: 100px;
+    border: solid 1px #FF4DB7;
   }
   
-  #myWorkHistory h3 {
-    color: gray;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  li {
+    font-family: sans-serif;
+  }
+  
+  .position {
+    font-family: sans-serif;
+    font-size: 25px;
     text-decoration-line: underline;
+    font-style: italic;
   }
   
-  #myWorkHistory p {
-    color: black;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
+  @media only screen and (max-width: 1000px) {
+    
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .containter {
+      justify-content: center;
+      flex-direction: column;
+      width:960;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      width: fit-content;
+      flex-direction: row;
+      align-items: center;
+    }
   
-  #myWorkHistory ul {
-    color: navy;
-    list-style-type: square;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
+    .aboutMe {
+      padding: 15px;
+      margin-left: 50px;
+    }
   
-  #myWorkHistory h2 {
-    color: gray;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    .jobs {
+      display: inherit;
+      flex-direction: column;
+      width: 960px;
+      margin-left: 20px;
+    }
+    .pic {
+      width: 300px;
+    }
+  
   }
