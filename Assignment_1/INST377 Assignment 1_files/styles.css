@@ -1,0 +1,66 @@
+
+html {
+    background-color: aliceblue;
+  }
+  
+  #myName {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+  }
+  #myName h1 {
+    color: lightgrey;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  
+  .resume {
+    width: 60%;
+    margin: auto;
+  }
+  
+  #myPicture img {
+    width: 70%;
+    height: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #myPicture h2 {
+    color: gray;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  
+  #myPicture p {
+    color: navy;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  
+  #myWorkHistory h3 {
+    color: gray;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    text-decoration-line: underline;
+  }
+  
+  #myWorkHistory p {
+    color: black;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  
+  #myWorkHistory ul {
+    color: navy;
+    list-style-type: square;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  
+  #myWorkHistory h2 {
+    color: gray;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
