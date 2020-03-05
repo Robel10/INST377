@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <div class="wrapper">
-        <div class="header">Prof A's Demo Page</div>
+        <div class="header">Prof A's Lab 4</div>
         <button class="button" onclick="clickMe()">
           Click me to make a change
         </button>
@@ -25,11 +25,44 @@
       </div>
     </div>
     <script>
-      function clickMe() {
+
+//variables
+        const name ="Robel Amare"
+        const firstName = "Robel";
+        const lastName = "Amare";
+        const first = name.substring(0,5)
+        const last = name.substring(5,10)
+        const nameTotal = first.length + last.length;
+
+
+
+        function clickMe() {
         const content = document.querySelector(".content");
         content.innerHTML = "Hello world";
-        console.log("help!");
+    
+        myHeader = document.querySelector('.header');
+        myHeader.textContent = name + "'s " + "Lab 4 " + nameTotal;
+
+//first paragraph
+        para = document.createElement('p');
+        para.setAttribute('class', 'NameLength');
+        text = 'My name has ' + nameTotal + ' characters.';
+        node = document.createTextNode(text);
+        para.appendChild(node);
+        document.querySelector('.content').appendChild(para);
+
+//second paragraph
+        para2 = document.createElement('p');
+        para2.setAttribute('class', 'ThirdLetter');
+        text2 = 'The third character in my name is ' + firstName[2].toUpperCase();
+        para2.appendChild(document.createTextNode(text2));
+        para2.appendChild(document.createElement('br'));
+//last line
+        line2 = 'The last three letters are ' + lastName.substring(2,5);
+        para2.appendChild(document.createTextNode(line2));
+        document.querySelector('.content').appendChild(para2);
       }
+
     </script>
   </body>
 </html>
