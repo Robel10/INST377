@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <div class="wrapper">
-      <div class="header">Test JSON page</div>
+      <div class="header">Robel Amare's List Of Countries</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
       <button class="activate">Click me to replace list
         entries</button>
@@ -266,6 +266,25 @@
       { "name": "Zimbabwe", "code": "ZW" }
     ]
     console.log("List of countries in the world", countries);
+
+    let store = sessionStorage.setItem('newCountries', JSON.stringify(countries));
+    let retrieve = sessionStorage.getItem('newCountries');
+    let nextRetrieve = JSON.parse(retrieve);
+    console.log(nextRetrieve);
+    
+    function randomize() {
+        return Math.floor(Math.random() * (countries.length));
+    }
+
+    function replace() {
+        let newList = "";
+        let oldList = document.getElementsByClassName("instructions");
+        let i;
+        for (i = 0; i < 50; i++) {
+            newList += "<li>" + countries[randomize(0, countries.length)].name + '<br>';
+        }
+        oldList[0].innerHTML = "<ol>" + newList;
+    }
   </script>
 </body>
 
