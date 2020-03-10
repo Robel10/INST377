@@ -276,9 +276,9 @@
         return Math.floor(Math.random() * (countries.length));
     }
 
-    function replace() {
+    btn.onclick = function() {
         let newList = "";
-        let oldList = document.getElementsByClassName("instructions");
+        let oldList = document.getElementsByClassName("content");
         let i;
         for (i = 0; i < 50; i++) {
             newList += "<li>" + countries[randomize(0, countries.length)].name + '<br>';
