@@ -3,22 +3,26 @@
 
 <head>
   <title>Test JSON page</title>
-  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
   <div class="container">
     <div class="wrapper">
-      <div class="header">Robel Amare's List Of Countries</div>
+      <div class="header">Robel's List of Countries</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-      <button class="activate">Click me to replace list
+      <button class="activate" onclick="newList()">Click me to replace list
         entries</button>
       <div class="content">
+        <ul class="prompt">
+          <li>Click button above</li>
+        </ul>
       </div>
       <div class="footer"></div>
     </div>
   </div>
   <script>
+
     /* N.B. - For your lab, use the variable "countries" now available on the window space */
     const countries = [
       { "name": "Afghanistan", "code": "AF" },
@@ -267,23 +271,30 @@
     ]
     console.log("List of countries in the world", countries);
 
-    let store = sessionStorage.setItem('newCountries', JSON.stringify(countries));
-    let retrieve = sessionStorage.getItem('newCountries');
-    let nextRetrieve = JSON.parse(retrieve);
-    console.log(nextRetrieve);
-    
-    function randomize() {
-        return Math.floor(Math.random() * (countries.length));
+    function newList(){
+      const content = document.querySelector(".content");
+      var countryList = [];
+      var unselected = [];
+      var orderedList = document.createElement("ol");
+      orderedList.setAttribute('class','countries');
+      content.replaceChild(orderedList,content.childNodes[1]);
+      unselected = [...countries];
+      
+      countryList = countryList.sort((a,b) => (a.name > b.name) ? 1 : -1);
+      countryList.forEach(enterCountries);
+      console.log("Unselected countries:",unselected);
     }
 
-    btn.onclick = function() {
-        let newList = "";
-        let oldList = document.getElementsByClassName("content");
-        let i;
-        for (i = 0; i < 50; i++) {
-            newList += "<li>" + countries[randomize(0, countries.length)].name + '<br>';
-        }
-        oldList[0].innerHTML = "<ol>" + newList;
+    function random(number) {
+return Math.floor(Math.random() * (countries.length));
+}
+
+    function enterCountries(item){
+      var listEntry = document.createElement("li");
+      var injectList = document.querySelector('.countries');
+      listEntry.innerHTML = "<strong>" + item.code + "</strong> " + item.name;
+
+      injectList.appendChild(listEntry);
     }
   </script>
 </body>
