@@ -279,7 +279,24 @@
       orderedList.setAttribute('class','countries');
       content.replaceChild(orderedList,content.childNodes[1]);
       unselected = [...countries];
-      
+
+      for(i=0;i<25;i++){
+        var complete = false;
+        var randomNum = Math.floor(Math.random()*(countries.length));
+        
+        while(!complete){
+          country = countries[randomNum];
+          if (countryList.includes(country)){
+            randomNum = Math.floor(Math.random()*(countries.length));
+            console.log("Found duplicate",countries[randomNum]);
+          }
+          else {
+            countryList.push(country);
+            unselected.splice(unselected.indexOf(country),1);
+            complete = true;
+          }
+        }     
+      }
       countryList = countryList.sort((a,b) => (a.name > b.name) ? 1 : -1);
       countryList.forEach(enterCountries);
       console.log("Unselected countries:",unselected);
