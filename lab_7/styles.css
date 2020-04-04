@@ -13,22 +13,6 @@ h3 {
   line-height: 1.2
 }
 
-div#my-map {
-  /* map container dimensions */
-  width: 640px;
-  height: 480px;
-  
-}
-
-/* I did a Google search on how to style leaflet popups and came across this link (http://bl.ocks.org/uafrazier/d589caa322f1b1e7c651). 
-   I still don't know why this works or why this overrides Leaflet's CSS...
-   */
-.lib-popup .leaflet-popup-tip,
-.lib-popup .leaflet-popup-content-wrapper {
-    background: rgba(255, 255, 255, 0.623);
-    border-radius: 20px;
-}
-
 /* End document default styles */
 .code {
   background-color: rgb(255, 231, 202);
@@ -54,7 +38,8 @@ div#my-map {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  background: #fefefe;
+  /*background: #fefefe;*/
+  background-image: url("https://wallpaperaccess.com/full/1092570.jpg");
   border: 1px dashed #ccc;
   margin: 25px;
 
@@ -83,13 +68,16 @@ div#my-map {
 }
 
 .content {
-  background: #fff;
+  /*background: #fff;*/
+  background-image: url("https://wallpaperaccess.com/full/1092570.jpg");
   border: 2px dotted #444;
   flex-grow: 2;
   flex: 0 0 200px;
   padding: 10px;
   overflow-wrap: break-word;
   margin: 25px 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .activate {
@@ -116,4 +104,26 @@ div#my-map {
 .activate:active {
   position: relative;
   top: 1px;
+}
+
+/* Map styles */
+#map1 {
+  width: 640px;
+  height: 480px;
+  border-radius: 25px;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background-color: #FFB6B6;
+  font-family: 'Spartan', sans-serif;
+  border-radius: 25px;
+  border: 2px solid #679B9B
+}
+
+/* Mobile view */
+@media only screen and (max-width: 1000px) {
+  .content {
+      flex-direction: column;
+      justify-content: center;
+  }
 }
