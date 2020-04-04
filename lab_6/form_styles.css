@@ -1,15 +1,44 @@
-form {
-
-}
-
-label {
-
-}
+body {
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #444;
+    padding: 0 10px;
+    background: whitesmoke;
+    
+  }
 
 input, textarea {
-    
+    border-radius: 5px;
 }
 
 ul {
+    list-style: none;
+}
 
+label {
+    display: block;
+    margin: 5px 0px;
+}
+
+button {
+    background-color: #ffaf38;
+    border-radius: 10px;
+    border: 2px solid #ffa012;
+    padding: 5px 10px;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
