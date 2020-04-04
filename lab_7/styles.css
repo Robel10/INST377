@@ -28,6 +28,7 @@ h3 {
   justify-content: center;
   align-items: flex-start;
   font-family: Helvetica, Geneva, Tahoma, sans-serif;
+  
 }
 
 .wrapper {
@@ -38,10 +39,10 @@ h3 {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  /*background: #fefefe;*/
-  background-image: url("https://wallpaperaccess.com/full/1092570.jpg");
+  background: #fefefe;
   border: 1px dashed #ccc;
   margin: 25px;
+  background-color: rgb(113, 236, 236);
 
 }
 
@@ -68,8 +69,7 @@ h3 {
 }
 
 .content {
-  /*background: #fff;*/
-  background-image: url("https://wallpaperaccess.com/full/1092570.jpg");
+  background: #fff;
   border: 2px dotted #444;
   flex-grow: 2;
   flex: 0 0 200px;
@@ -106,24 +106,20 @@ h3 {
   top: 1px;
 }
 
-/* Map styles */
-#map1 {
-  width: 640px;
-  height: 480px;
-  border-radius: 25px;
-}
+#mapped {
+    width: 640px;
+    height: 480px;
+    border-radius: 25px;
 
-.custom-popup .leaflet-popup-content-wrapper {
-  background-color: #FFB6B6;
-  font-family: 'Spartan', sans-serif;
-  border-radius: 25px;
-  border: 2px solid #679B9B
-}
-
-/* Mobile view */
-@media only screen and (max-width: 1000px) {
-  .content {
-      flex-direction: column;
-      justify-content: center;
   }
-}
+  .leaflet-popup-content-wrapper {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 2px solid black;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .content {
+        flex-direction: column;
+        justify-content: center;
+    }
+  }

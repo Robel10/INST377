@@ -35,7 +35,8 @@
     <script>
         /* Your lab code can go here, or in an external file you include */
         const theMap = L.map('mapped').setView([38.9869, -76.9426], 13);
-        const mark1 = L.marker([38.986, -76.945]).addTo(theMap);
+        const mckMarker = L.marker([38.986, -76.945]).addTo(theMap);
+        
         
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -46,7 +47,7 @@
         accessToken: 'pk.eyJ1IjoiaGVhdGhlcmNzdWxpZXIiLCJhIjoiY2s4a2I5YWE4MDAzbjNnbzJqYjNzYXhjdSJ9.Cpdr84dATR8MzHRhIRrKDA'
         }).addTo(theMap);
         
-        Mckmarker.bindPopup("McKeldin Library").openPopup();
+        mckMarker.bindPopup("McKeldin Library").openPopup();
 
         const randomNumbers = [];
         while (randomNumbers.length < 3) {
@@ -54,17 +55,17 @@
         if (randomNumbers.indexOf(randomNum) === -1)
           randomNumbers.push(randomNum);
       }
-        const nameAndCoordinates = [];
+        const nameAndPlace = [];
         for (let i = 0; i < randomNumbers.length; i++) {
         let number = randomNumbers[i];
         let name = foodData[number]["name"];
         let coordinates =
           foodData[number]["geocoded_column_1"]["coordinates"];
-        nameAndCoordinates.push({ name: name, coordinates: coordinates });
+        nameAndPlace.push({ name: name, coordinates: coordinates });
       }
       console.log(
         "Establishment name & lat/long",
-        nameAndCoordinates
+        nameAndPlace
       );
 
       fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json")
@@ -77,11 +78,11 @@
         });
 
       for (let i = 0; i < 3; i++) {
-        let name = nameAndCoordinates[i]["name"];
-        let coordinates = nameAndCoordinates[i]["coordinates"];
+        let name = nameAndPlace[i]["name"];
+        let coordinates = nameAndPlace[i]["coordinates"];
         let latitude = coordinates[0];
         let longtitude = coordinates[1];
-        const newMark = L.marker([longtitude, latitude]).addTo(mymap);
+        const newMark = L.marker([longtitude, latitude]).addTo(theMap);
         const str2 = "<b>" + name + "</b>";
         newMark.bindPopup(str2).openPopup();
       }
