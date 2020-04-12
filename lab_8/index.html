@@ -10,15 +10,18 @@
       <div class="wrapper">
         <div class="header">Frontend Libraries: Charts Lab</div>
         <div class="content">
-          When your lab is done, this should be replaced with a useful chart full of food data.
+        <div id = "doughChart">
+
+        </div>
         </div>
         <div class="footer">Let's eat out in the future!</div>
       </div>
     </div>
     <script>
-      fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json") // replace this with the food safety data set
-        .then((response) => response.json()) // this is an "implicit return" - we're returning the results of the Fetch request to the next step.
+      fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json') // replace this with the food safety data set
+        .then((response) => response.json())// this is an "implicit return" - we're returning the results of the Fetch request to the next step.
         .then((data) => { // this is an explicit return. If I want my information to go further, I'll need to use the "return" keyword before the brackets close
+
           console.log(data);
           const clearEmptyData = data.filter((f) => f.geocoded_column_1);
           const refined = clearEmptyData.map((m) => ({
@@ -26,65 +29,55 @@
             name: m.name,
             latLong: m.geocoded_column_1.coordinates,
           }));
-          // return data; // <- this will pass the data to the next "then" statement when I'm ready.
-          return refined;
-        })
 
-        .then((data) => {
-          return data.reduce((result, current) =>{
-          if (!result[current.category]) {
-            //c.categories.push(current.category);
-            result[current.category] = [];
-            //{"Carry-out": []};
-          }
-          result[current.category].push(current);
-          return result;
-          }, {}); 
+          return refined; // <- this will pass the data to the next "then" statement when I'm ready.
         })
         .then((data) => {
-          // here i'm going to change the data into format expected by the chart
+          return data.reduce((result, current) => {
+            if(!result[current.category]){
+
+              result[current.category] = [];
+
+            }
+            result[current.category].push(current);
+            return result;
+        }, {});
+        })
+        .then((data) => {
+
           console.log('new data', data);
-          const reformattedData = Object.entries(data).map((m,i) => {
-            console.log(m)
+          const reformattedData = Object.entries(data).map((m, i) => {
+
+            console.log(m);
             return {
-              y:m[1].length,
-              label: m[0], //this is a value from the chart example
+              y: m[1].length,
+              label: m[0],
             };
-            });
+          });
+
           return reformattedData;
         })
         .then((results) => {
-         var chart = new CanvasJS.Chart("chartContainer", {
-	          animationEnabled: true,
-	          title: {
-		          text: "Military Expenditure of Countries: 2016"
-	          },
-	          axisX: {
-	          	interval: 1
-          	},
-          	axisY: {
-		          title: "Expenses in Billion Dollars",
-		          scaleBreaks: {
-		        	type: "wavy",
-		        	customBreaks: [{
-			      	startValue: 80,
-			      	endValue: 210
-			      	},
-				      {
-				      	startValue: 230,
-					      endValue: 600
-			      	}
-	          	]}
-          	},
-            data: [{
-                type: "bar",
-                name: "companies",
-                axisYType: "secondary",
-                dataPoints: prettyDataPoints
-            }]
+          console.log(results);
+          const chart = new CanvasJS.Chart("doughChart", {
+            animationEnabled: true,
+            title: {
+              text: "Let's Find Somewhere To Eat",
+            },
+            data: [
+              {
+                type: "doughnut",
+		            startAngle: 60,
+	            	//innerRadius: 60,
+		            indexLabelFontSize: 17,
+	            	indexLabel: "{label} - #percent%",
+	            	toolTipContent: "<b>{label}:</b> {y} (#percent%)",            
+                dataPoints: results
+              }]
+          });
+          return chart;
+          chart.render();
         });
-      chart.render();
-    });
     </script>
   </body>
 </html>
